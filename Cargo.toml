@@ -1,2 +1,2 @@
 [workspace]
-members = ["axum-common","axum-web"]
+members = ["fast_admin","fast_common","fast_api"]
