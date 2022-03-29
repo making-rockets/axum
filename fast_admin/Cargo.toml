@@ -1,30 +1,30 @@
 [package]
 authors = ["by965738071@163.com <by965738071@163.com>"]
-edition = "2018"
+edition = "2021"
 name = "fast_admin"
 version = "0.1.0"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-fast_common = {path = "../fast_common"}
+fast_common = { path = "../fast_common" }
 #log日志支持(必须)
-axum = {version = "0.4.0"}
-env_logger = "0.9"
+axum = { version = "*" }
+env_logger = { version = "*" }
 
-tokio = {version = "1.14.0", features = ["full"]}
+tokio = { version = "*", features = ["full"] }
 #时间
-chrono = "0.4.19"
+chrono = "*"
 #orm
-rbatis = {version = "3.0.24"}
+rbatis = { version = "*" }
 #cpu_count
-async-trait = "0.1.48"
-num_cpus = "1.13.0"
+async-trait = "*"
+num_cpus = "*"
 #redis
 #redis = { version = "0.17.0", features = ["async-std-comp"] }
-serde = {version = "1.0", features = ["derive"]}
-serde_json = {version = "1.0.72"}
-tracing = {version ="0.1.2" }
-bson2 = "2.0.3"
-fast_log = "1.4.0"
+serde = { version = "*", features = ["derive"] }
+serde_json = { version = "*" }
+tracing = { version = "*" }
+bson2 = "*"
+fast_log = "*"
  

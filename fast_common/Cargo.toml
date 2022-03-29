@@ -2,55 +2,49 @@
 name = "fast_common"
 version = "0.1.0"
 authors = ["by965738071@163.com <by965738071@163.com>"]
-edition = "2018"
+edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-
-actix-web = "3.3.2"
-actix-http = "2.2.0"
-
+actix-web = { version = "4.0.0-beta.15" }
+derive_builder = { version = "0.11.1" }
 #json支持(必须)
-serde = { version = "1.0", features = ["derive"] }
-serde_json = "1.0"
-serde_derive = "1.0"
+serde = { version = "*", features = ["derive"] }
+serde_json = { version = "*" }
+serde_derive = { version = "*" }
 
 #日期支持(必须)
-chrono = { version = "0.4", features = ["serde"] }
+chrono = { version = "*" }
 
 #log日志支持(必须)
-log = "0.4"
-fast_log = "1.2.9"
-env_logger = "0.9.0"
-
-#BigDecimal支持(可选)
-bigdecimal = "0.3.0"
+log = { version = "*" }
+fast_log = { version = "*" }
+env_logger = { version = "*" }
 
 #rbatis支持
-rbatis = { version = "3.0.24"}
+rbatis = { version = "*", default-features = false, features = ["runtime-async-std-rustls", "mysql"] }
+sea-orm = { version = "*", features = ["sqlx-mysql", "runtime-actix", "debug-print", "macros"], default-features = false }
 #静态初始化
-lazy_static = "1.4.0"
+lazy_static = { version = "*" }
 #异步
-futures = "0.3.10"
+futures = { version = "*" }
 
 #网络请求
-reqwest = "0.11.0"
-redis = { version = "0.21.4", features = ["async-std-comp"], default-features = false }
-redis-async-pool = "0.2.4"
-
-short-crypt = "1.0.23"
-async_once = "0.2.1"
+reqwest = { verison = "*" }
+short-crypt = { version = "*" }
+async_once = { version = "*" }
 #解析toml
-toml_edit = "0.10.1"
+toml_edit = { verson = "*" }
 
-validator = "0.14.0"
-validator_derive = "0.14.0"
-uuid = "0.8.2"
-mime = "0.3.16"
-jsonwebtoken = "7.2.0"
-captcha = "0.0.8"
-qrcode = "0.12"
-image = "0.23"
-async-trait = "0.1.48"
-bson2 = "2.0.3"
+validator = { version = "*" }
+validator_derive = { version = "*" }
+uuid = { version = "*" }
+mime = { version = "*" }
+jsonwebtoken = { version = "*" }
+captcha = { version = "*" }
+qrcode = { version = "*" }
+image = { version = "*" }
+async-trait = { version = "*" }
+bson2 = { version = "*" }
+anyhow = { version = "*" }

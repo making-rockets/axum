@@ -1,6 +1,5 @@
 use async_trait::async_trait;
 use serde::Serialize;
-use std::future::Future;
 
 #[async_trait]
 pub trait BaseStorage: Sync + Send {

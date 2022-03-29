@@ -1,4 +1,6 @@
 #[macro_use]
+extern crate derive_builder;
+#[macro_use]
 extern crate lazy_static;
 #[macro_use]
 extern crate rbatis;
@@ -9,3 +11,7 @@ mod config;
 pub mod middleware;
 pub mod models;
 pub mod utils;
+
+lazy_static! {
+    static ref RB: rbatis::rbatis::Rbatis = rbatis::rbatis::Rbatis::new();
+}

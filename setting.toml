@@ -1,0 +1,12 @@
+[database]
+protocol = "mysql"
+name = "xxxx123"
+server = "192.168.1.1"
+ports = ""
+username = ""
+password = ""
+connect_timeout = ""
+idle_timeout = ""
+max_lifetime = ""
+connection_max = 5000
+enabled = true

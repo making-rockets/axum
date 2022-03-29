@@ -1,12 +1,16 @@
 extern crate fast_common;
 
-use axum::{routing::get, Router};
+use std::convert::Infallible;
 use std::net::SocketAddr;
-
-use rbatis::rbatis::Rbatis;
 use std::sync::Arc;
 
-use axum::AddExtensionLayer;
+use axum::{routing::get, AddExtensionLayer, Router};
+use rbatis::rbatis::Rbatis;
+
+pub mod controller;
+mod mapper;
+mod routers;
+mod service;
 
 //mysql driver url
 pub const MYSQL_URL: &'static str = "mysql://root:123456@localhost:3306/test";
@@ -17,11 +21,8 @@ async fn handler() -> &'static str {
 
 #[tokio::main]
 async fn main() {
-    //log
-    // fast_log::init_log("requests.log", 1000, log::Level::Info, None, true);
-
     let rb = Rbatis::new();
-    rb.link(MYSQL_URL).await.expect("rbatis link database fail");
+    // rb.link(MYSQL_URL).await.expect("rbatis link database fail");
     let rb = Arc::new(rb);
 
     // build our application with a route
