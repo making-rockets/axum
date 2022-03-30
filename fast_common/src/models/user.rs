@@ -1,10 +1,11 @@
-use crate::models::menu::MenuVo;
-use crate::models::user_role::UserRole;
-use crate::rbatis;
 use chrono::NaiveDateTime;
 use serde_derive::{Deserialize, Serialize};
 
-#[derive(Debug, Serialize, Deserialize, Clone, PartialEq)]
+use crate::models::menu::MenuVo;
+use crate::models::user_role::UserRole;
+use crate::rbatis::CRUDTable;
+
+#[derive(Debug, Serialize, Deserialize, Clone, PartialEq, CRUDTable)]
 pub struct User {
     pub id: Option<u64>,
     pub user_name: Option<String>,

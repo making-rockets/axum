@@ -10,6 +10,7 @@ pub mod common;
 mod config;
 pub mod middleware;
 pub mod models;
+pub mod service;
 pub mod utils;
 
 lazy_static! {
