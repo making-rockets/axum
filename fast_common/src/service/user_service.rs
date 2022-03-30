@@ -11,4 +11,5 @@ impl BaseModel for User {
 
 impl BaseService for UserService {
     type Model = User;
+    // /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
 }
