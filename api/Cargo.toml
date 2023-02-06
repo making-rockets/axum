@@ -1,0 +1,116 @@
+[package]
+name = "api"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+#
+#
+axum = { workspace = true, default-features = false, features = ["multipart", "http2", "headers", "original-uri"] }
+axum-server = { workspace = true, default-features = false, features = ["tls-rustls"] }
+
+# 
+futures = { workspace = true, default-features = false }
+# 
+tokio-stream = { workspace = true, default-features = false }
+# 
+serde_json = { workspace = true, default-features = false }
+# 
+headers = { workspace = true, default-features = false }
+# 
+
+#
+anyhow = { workspace = true, default-features = false }
+# 
+reqwest = { workspace = true, default-features = false, features = ["json"] }
+#
+once_cell = { workspace = true, default-features = false }
+#
+chrono = { workspace = true, default-features = false, features = ["serde"] }
+
+axum-extra = { workspace = true, default-features = false, features = ["spa"] }
+
+tokio = { workspace = true, default-features = false, features = ["rt-multi-thread", "macros", "parking_lot", "signal"] }
+tower-http = { workspace = true, default-features = false, features = ["cors", "fs", "compression-gzip"] }  #compression-gzip
+
+#
+tracing = { workspace = true, default-features = false }
+tracing-appender = { workspace = true, default-features = false }
+tracing-subscriber = { workspace = true, default-features = false, features = ["json", "env-filter", "local-time", "registry"] }
+
+
+
+mime = { workspace = true, default-features = false }
+#
+
+
+# regex = {workspace = true}
+serde = { workspace = true, default-features = false, features = ["derive"] }
+
+
+# sea-orm
+sea-orm = { workspace = true, default-features = false, features = ["macros", "runtime-tokio-native-tls", "with-chrono", "debug-print"] }
+
+#  随机数
+md5 = { workspace = true, default-features = false }
+rand = { workspace = true, default-features = false }
+time = { workspace = true }
+#  axum
+tower = { workspace = true, default-features = false }
+#
+bytes = { workspace = true, default-features = false }
+#
+jsonwebtoken = { workspace = true, default-features = false }
+#
+scru128 = { workspace = true, default-features = false }
+#
+toml = { workspace = true, default-features = false }
+# tracing
+
+# 计划任务
+delay_timer = { workspace = true, default-features = false }
+user-agent-parser = { workspace = true, default-features = false }
+
+#  随机数
+# 系统信息
+sysinfo = { workspace = true, default-features = false }
+# 验证码
+captcha_rust = { workspace = true, default-features = false }
+# skyTable  可选依赖
+skytable = { workspace = true, features = ["const-gen", "aio"], default-features = false, optional = true }
+
+#  openApi
+# utoipa = { workspace = true, features = ["axum_extras"] }
+# utoipa-swagger-ui = {workspace = true, features = ["axum"] }
+
+
+
+
+
+
+
+# poem
+hyper = { workspace = true, default-features = false }
+
+#
+# 用于生成可排序的唯一id
+#
+#
+
+
+
+
+[features]
+# default = ["postgres", "mysql"]
+default = ["postgres", "mysql", "sqlite", "cache-mem", "cache-skytable"]
+mysql = ["sea-orm/sqlx-mysql"]
+postgres = ["sea-orm/sqlx-postgres"]
+sqlite = ["sea-orm/sqlx-sqlite"]
+
+# app features
+#  使用内存做缓存中间件
+cache-mem = []
+# 使用skytable 做缓存中间件
+cache-skytable = ["skytable"]
